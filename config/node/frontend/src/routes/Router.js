@@ -13,6 +13,7 @@ const routes = createBrowserRouter(
         },
         {
             path: '/map',
+
             element: <Map/>
         },
         {
