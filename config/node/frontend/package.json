@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "homepage": "https://j-wrzosek.github.io/prge_jw/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
