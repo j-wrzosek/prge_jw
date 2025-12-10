@@ -13,6 +13,7 @@ const routes = createHashRouter(
         },
         {
             path: '/map',
+
             element: <Map/>
         },
         {
