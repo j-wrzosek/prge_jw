@@ -12,7 +12,7 @@ function App() {
 
         <Suspense
             fallback={
-            <CircularProgress />
+            <CircularProgress/>
             }
         >
 
