@@ -17,6 +17,7 @@ jobs:
     name: Build & Push
     runs-on:
       - self-hosted
+    environment: ${{github.ref_name}}
 
     steps:
       - uses: actions/checkout@v3
