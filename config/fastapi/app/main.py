@@ -1,7 +1,9 @@
 from fastapi import FastAPI
-from app.routers.static_content import endpoint
+from app.routers.static_content import router
+from app.routers.db_insert import router_insert
 
 
 app = FastAPI(title="Mapbook API")
 
-app.include_router(endpoint.router, prefix="/app")
+app.include_router(router, prefix="/app")
+app.include_router(router, prefix="/app")
