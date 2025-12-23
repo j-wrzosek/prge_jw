@@ -17,9 +17,9 @@ async def insert_user():
         db_connection = connect_to_db(db_name=db_name, db_user=db_user, db_password=db_password)
 
         params = {
-            "name": "Paweł",
-            "posts":10,
-            "location": "Elbląg"
+            "name": "Gaweł",
+            "posts":13,
+            "location": "Łódź"
         }
 
         sql_query = text("""
