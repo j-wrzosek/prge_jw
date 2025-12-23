@@ -42,7 +42,7 @@ services:
       - *env-postgres-user
       - *env-postgres-password
     ports:
-      - ${FAST_API_PORT}:1000
+      - ${FAST_API_PORT}:10000
 
 volumes:
   postgis-prge-2025-data:
