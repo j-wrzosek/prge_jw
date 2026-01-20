@@ -1,24 +1,24 @@
 import React, {useState} from 'react';
-import {Container, Box, TextField, Button, Paper} from "@mui/material";
+import {Container, Box, TextField, Button, Paper, Typography} from "@mui/material";
 
-function NewUser(props) {
-    const [userName, setUserName] = useState("")
-    const [userLocation, setUserLocation] = useState("")
-    const [userPosts, setUserPosts] = useState(0)
+function NewPark(props) {
+    const [parkName, setParkName] = useState("")
+    const [parkCity, setParkCity] = useState("")
+    const [parkRating, setParkRating] = useState(5)
 
     const handleSubmit = async (e) => {
-        console.log(userName, userLocation, userPosts)
+        console.log(parkName, parkCity, parkRating)
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:10000/app/insert_user', {
+            const response = await fetch('http://localhost:10000/app/insert_park', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    name: userName,
-                    location: userLocation,
-                    posts: userPosts
+                    name: parkName,
+                    city: parkCity,
+                    rating: parkRating
                 })
             })
             console.log(response)
@@ -33,28 +33,31 @@ function NewUser(props) {
         <div>
             <Container>
                 <Paper elevation={3} sx={{p: 4}}>
+                    <Typography variant="h5" sx={{ mb: 2, textAlign: 'center' }}>
+                        DODAJ NOWY PARK
+                    </Typography>
                     <Box component="form"
                          onSubmit={handleSubmit}
                     >
                         <TextField sx={{m: 1}}
                                    fullWidth
-                                   label="imię"
-                                   value={userName}
-                                   onChange={(e) => setUserName(e.target.value)}
+                                   label="Nazwa parku"
+                                   value={parkName}
+                                   onChange={(e) => setParkName(e.target.value)}
                         ></TextField>
                         <TextField sx={{m: 1}}
                                    fullWidth
-                                   label="location"
-                                   value={userLocation}
-                                   onChange={(e) => setUserLocation(e.target.value)}
+                                   label="Miasto / Lokalizacja"
+                                   value={parkCity}
+                                   onChange={(e) => setParkCity(e.target.value)}
                         ></TextField>
                         <TextField sx={{m: 1}}
                                    fullWidth
-                                   label="posts"
-                                   value={userPosts}
-                                   onChange={(e) => setUserPosts(e.target.value)}
+                                   label="Ocena (1-10)"
+                                   value={parkRating}
+                                   onChange={(e) => setParkRating(e.target.value)}
                         ></TextField>
-                        <Button type="submit" variant='contained'>Dodaj użytkownika</Button>
+                        <Button type="submit" variant='contained'>Dodaj park</Button>
 
 
                     </Box>
@@ -66,4 +69,4 @@ function NewUser(props) {
     );
 }
 
-export default NewUser;
+export default NewPark;
