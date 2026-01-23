@@ -31,9 +31,9 @@ function Services(props) {
             variant='contained'
             size='large'
             component={Link}
-            to='/newuser'
+            to='/newpark'
         >
-            Dodaj nowego użytkownika
+            Dodaj nowy park
         </Button>
     </div>
 

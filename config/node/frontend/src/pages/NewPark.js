@@ -5,6 +5,7 @@ function NewPark(props) {
     const [parkName, setParkName] = useState("")
     const [parkCity, setParkCity] = useState("")
     const [parkRating, setParkRating] = useState(5)
+    const [parkPhoto, setParkPhoto] = useState("")
 
     const handleSubmit = async (e) => {
         console.log(parkName, parkCity, parkRating)
@@ -18,7 +19,8 @@ function NewPark(props) {
                 body: JSON.stringify({
                     name: parkName,
                     city: parkCity,
-                    rating: parkRating
+                    rating: parkRating,
+                    photo: parkPhoto
                 })
             })
             console.log(response)
@@ -57,6 +59,11 @@ function NewPark(props) {
                                    value={parkRating}
                                    onChange={(e) => setParkRating(e.target.value)}
                         ></TextField>
+                        <TextField
+                            sx={{m: 1}} fullWidth label="Link do zdjęcia (URL)"
+                            value={parkPhoto} onChange={(e) => setParkPhoto(e.target.value)}
+                            placeholder="https://example.com/image.jpg"
+                        />
                         <Button type="submit" variant='contained'>Dodaj park</Button>
 
 

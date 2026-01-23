@@ -40,6 +40,7 @@ class ParkData(BaseModel):
     name: str
     rating: int
     city: str
+    photo: str
 
 
 
@@ -56,12 +57,13 @@ async def insert_park(park: ParkData):
             "name": park.name,
             "rating": park.rating,
             "city": park.city,
+            "photo": park.photo,
             "coordinates": f"SRID=4326;POINT({lon} {lat})"
         }
 
         sql_query = text("""
-                         insert into park (name, rating, city, geom)
-                         values (:name, :rating, :city, ST_GeomFromText(:coordinates, 4326)); 
+                         insert into park (name, rating, city, photo, geom)
+                         values (:name, :rating, :city, :photo, ST_GeomFromText(:coordinates, 4326)); 
                          """)
 
         with db_connection.connect() as conn:

@@ -18,12 +18,12 @@ function MapComponent(props) {
                 new TileLayer({
                     source: new OSM(),
                 }),
-                //http://localhost:9000/geoserver/ne/wms?service=WMS&version=1.1.0&request=GetMap&layers=ne%3Acountries&bbox=-180.0%2C-90.0%2C180.0%2C83.64513&width=768&height=370&srs=EPSG%3A4326&styles=&format=application/openlayers
+
                 new TileLayer({
                     source: new TileWMS({
-                        url: 'http://localhost:9000/geoserver/ne/wms?',
+                        url: 'http://localhost:9000/geoserver/prge/wms?',
                         params: {
-                            'LAYERS': 'ne:countries',
+                            'LAYERS': 'prge:park',
                             'TILED': true
                         },
                         serverType: 'geoserver',
@@ -43,8 +43,8 @@ function MapComponent(props) {
                 })
             ],
             view: new View({
-                center: [21, 52],
-                zoom: 6,
+                center: [21.0122, 52.2297],
+                zoom: 12,
             })
 
         });

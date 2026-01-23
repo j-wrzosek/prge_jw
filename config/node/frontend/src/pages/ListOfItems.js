@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import UserCard from "../components/UserCard";
+import ParkCard from "../components/ParkCard";
 
 function ListOfItems(props) {
 
-    const [users, setUsers] = useState([]);
+    const [parks, setParks] = useState([]);
 
     useEffect(()=>{
-        //http://localhost:10000/app/get_users
-        fetch('http://localhost:10000/app/get_users')
+        //http://localhost:10000/app/get_parks
+        fetch('http://localhost:10000/app/get_parks')
             .then(res => res.json())
             .then(res => {
                 console.log(res);
-                setUsers(res)
+                setParks(res)
             })
 
 
@@ -19,13 +19,13 @@ function ListOfItems(props) {
     },[])
 
 
-    console.log('TO JEST MÓJ USERS I JEGO AKTUALNA ZAWARTOŚĆ', users.data)
+    console.log('TO JEST MÓJ USERS I JEGO AKTUALNA ZAWARTOŚĆ', parks.data)
 
     return (
         <div>
             List of items
             <div>
-                {users.data?.map(user => <UserCard user={user}/>)}
+                {parks.data?.map(park => <ParkCard park={park}/>)}
             </div>
 
         </div>
