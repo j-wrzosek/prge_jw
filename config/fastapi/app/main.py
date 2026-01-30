@@ -4,7 +4,7 @@ from app.routers.db_insert import router as insert_router
 from app.routers.dynamic_content import router_get_parks
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="Mapbook API")
+app = FastAPI(title="ParkManager API")
 
 app.add_middleware(
     CORSMiddleware,

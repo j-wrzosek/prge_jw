@@ -1,34 +1,43 @@
 import React, {useEffect, useState} from 'react';
+import { Box, Typography, Grid, Button } from '@mui/material';
+import { Link } from 'react-router-dom'; 
 import ParkCard from "../components/ParkCard";
 
-function ListOfItems(props) {
-
+function ListOfItems() {
     const [parks, setParks] = useState([]);
 
-    useEffect(()=>{
-        //http://localhost:10000/app/get_parks
+    useEffect(() => {
         fetch('http://localhost:10000/app/get_parks')
             .then(res => res.json())
-            .then(res => {
-                console.log(res);
-                setParks(res)
-            })
-
-
-         console.log('działa')
-    },[])
-
-
-    console.log('TO JEST MÓJ USERS I JEGO AKTUALNA ZAWARTOŚĆ', parks.data)
+            .then(res => setParks(res));
+    }, []);
 
     return (
-        <div>
-            List of items
-            <div>
-                {parks.data?.map(park => <ParkCard park={park}/>)}
-            </div>
+        <Box sx={{ bgcolor: '#e0e0e0', minHeight: '100vh', p: 5 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 5 }}>
+                <Typography variant="h3" sx={{ color: '#2ecc71', fontWeight: 'bold' }}>
+                    Lista parków/ogrodów
+                </Typography>
 
-        </div>
+
+                <Button
+                    variant="contained"
+                    component={Link}
+                    to="/table"
+                    sx={{ bgcolor: '#2ecc71', '&:hover': { bgcolor: '#27ae60' } }}
+                >
+                    Zmień na widok tabeli
+                </Button>
+            </Box>
+
+            <Grid container spacing={4}>
+                {parks.data?.map(park => (
+                    <Grid item xs={3} key={park.name}>
+                        <ParkCard park={park} />
+                    </Grid>
+                ))}
+            </Grid>
+        </Box>
     );
 }
 

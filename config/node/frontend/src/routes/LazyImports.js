@@ -6,4 +6,5 @@ export const About=lazy(()=>import('../pages/About'));
 export const ListOfItems=lazy(()=>import('../pages/ListOfItems'));
 export const Map=lazy(()=>import('../pages/Map'));
 export const Services=lazy(()=>import('../pages/Services'));
-export const NewPark=lazy(()=>import('../pages/NewPark'));
+export const NewPark=lazy(()=>import('../pages/NewPark'))
+export const TableList=lazy(()=>import('../pages/TableList'));
