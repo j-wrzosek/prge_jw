@@ -21,9 +21,9 @@ async def get_parks():
 
         with db_connection.connect() as con:
             results = con.execute(sql_query)
-            users = [dict(row._mapping) for row in results]
+            parks = [dict(row._mapping) for row in results]
 
-        return {'status': 'succes', 'data':users}
+        return {'status': 'succes', 'data':parks}
 
     except Exception as e:
         print(f'błąd podczas get_parks')
@@ -45,4 +45,4 @@ async def get_parks():
 
 
 
-    return {"imie":"Adrian"}
+
